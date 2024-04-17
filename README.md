@@ -13,29 +13,43 @@ Mintable helps you:
 
 ![](./docs/img/mintable.png)
 
-<br>
-
-[![](https://img.shields.io/github/actions/workflow/status/kevinschaich/mintable/test.yml?branch=master)](https://github.com/kevinschaich/mintable/actions?query=workflow%3ATest)
-[![](https://img.shields.io/npm/v/mintable)](https://www.npmjs.com/package/mintable)
-[![](https://img.shields.io/github/release/kevinschaich/mintable.svg)](https://github.com/kevinschaich/mintable/releases)
-[![](https://img.shields.io/github/license/kevinschaich/mintable.svg)](https://github.com/kevinschaich/mintable/blob/master/LICENSE)
-[![](https://img.shields.io/github/issues/kevinschaich/mintable.svg)](https://github.com/kevinschaich/mintable/issues)
-[![](https://img.shields.io/github/issues-pr/kevinschaich/mintable.svg)](https://github.com/kevinschaich/mintable/pulls)
-[![](https://img.shields.io/reddit/subreddit-subscribers/Mintable?style=social)](https://reddit.com/r/Mintable)
-
 ---
 
 ## Quickstart
 
-```bash
-npm install -g mintable
-mintable setup
+Create [Teller] account. Download client cert: private_key.pem and certificate.pem
+
+[Teller]: https://teller.io
+
+Then setup:
+
+```
+git clone -b paralin git@github.com:paralin/mintable.git
+cd ./mintable
+
+yarn
+tsx ./src/scripts/cli.ts setup
 ```
 
-Update your account balances/transactions:
+You will need to:
+
+1. Create a Google Cloud Console project: https://console.cloud.google.com
+2. Enable the Sheets API: https://console.cloud.google.com/apis/api/sheets.googleapis.com/overview
+3. Follow the guide as printed by mintable.
+
+Setup teller:
 
 ```
-mintable fetch
+# Setup your teller instance.
+tsx ./src/scripts/cli.ts teller-setup
+# Setup your particular bank account with Teller.
+tsx ./src/scripts/cli.ts teller-account-setup
+```
+
+To fetch:
+
+```
+tsx ./src/scripts/cli.ts fetch
 ```
 
 ## Documentation
