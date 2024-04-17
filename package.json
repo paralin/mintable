@@ -6,8 +6,7 @@
     "bin": "./lib/scripts/cli.js",
     "preferGlobal": true,
     "scripts": {
-        "build": "tsc",
-        "watch": "tsc --watch",
+        "build": "rimraf lib && esbuild --minify --tree-shaking --bundle ./src/scripts/cli.ts --outfile=./lib/scripts/cli.js --platform=node",
         "lint": "prettier --check ./src/**/*.js ./src/**/*.html ./src/**/*.ts ./docs/**/*.json",
         "lint-fix": "prettier --write ./src/**/*.js ./src/**/*.html ./src/**/*.ts ./docs/**/*.json",
         "test": "npm run build && npm run lint"
@@ -45,7 +44,9 @@
         "yargs": "^15.1.0"
     },
     "devDependencies": {
-        "prettier": "^1.16.4"
+        "esbuild": "^0.20.2",
+        "prettier": "^1.16.4",
+        "rimraf": "^5.0.5"
     },
     "description": "Automate your personal finances – for free, with no ads, and no data collection.",
     "repository": {
