@@ -1,4 +1,8 @@
-import { BaseIntegrationConfig, IntegrationId, IntegrationType } from '../integrations'
+import {
+  BaseIntegrationConfig,
+  IntegrationId,
+  IntegrationType,
+} from '../integrations'
 import { Transaction } from '../transaction'
 
 export interface CSVImportConfig extends BaseIntegrationConfig {

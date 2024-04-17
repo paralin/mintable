@@ -1,7 +1,23 @@
 {
-    "compilerOptions": {
-        "lib": ["es2019"],
-        "esModuleInterop": true,
-        "outDir": "lib"
-    }
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "./lib",
+    "paths": {},
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "remove",
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "lib": ["webworker", "dom"]
+  },
+  "exclude": ["node_modules", "vendor", "lib"]
 }

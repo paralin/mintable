@@ -27,23 +27,16 @@ Mintable helps you:
 
 ## Quickstart
 
-Requires `node >= v11.0.0`.
+```bash
+npm install -g mintable
+mintable setup
+```
 
-1. Sign up for [Plaid's Free Plan](https://plaid.com/pricing/).
-2. Install Mintable:
+Update your account balances/transactions:
 
-    ```bash
-    npm install -g mintable
-    mintable setup
-    ```
-
-3. Update your account balances/transactions:
-
-    ```
-    mintable fetch
-    ```
-
-> **Note:** If you're already a version `1.x.x` user, you can [migrate your existing configuration to version `2.x.x`](./docs/README.md#migrating-from-v1xx).
+```
+mintable fetch
+```
 
 ## Documentation
 
@@ -56,7 +49,7 @@ Check out the full documentation [in the `./docs` folder](./docs/README.md).
 > **min·ta·ble**: _noun._
 > 1. An open-source tool to automate your personal finances – for free, with no ads, and no data collection. Derived from *mint* (the [wildly popular personal finance app from Intuit](https://www.mint.com/)) + *table* (a spreadsheet).
 
-**Do I have to use Plaid?**
+**Do I have to use Teller?**
 
 * Nope. You can [import transactions from a CSV bank statement](./docs/README.md#manually--on-your-local-machine--via-csv-bank-statements) exclusively on your local machine. We also have [templates](./docs/templates) to get you started.
 
@@ -68,10 +61,6 @@ Check out the full documentation [in the `./docs` folder](./docs/README.md).
 
 * Nope. You can automate it for free using [BitBar](./docs/README.md#automatically-in-your-macs-menu-bar--via-bitbar), [`cron`](./docs/README.md#automatically-in-your-local-machines-terminal--via-cron), or [GitHub Actions](./docs/README.md#automatically-in-the-cloud--via-github-actions).
 
-**How do I use it with banks outside the US?**
-
-* Fork & edit the [country codes here](https://github.com/kevinschaich/mintable/blob/377257a6040ed9b6dd93d88435e53c48108b5806/src/integrations/plaid/plaidIntegration.ts#L126). Default support is for US banks.
-
 **How do I use it with Windows?**
 
 * Windows is not natively supported but you can try [this](https://github.com/kevinschaich/mintable/issues/125#issuecomment-1253961155).
@@ -80,8 +69,3 @@ Check out the full documentation [in the `./docs` folder](./docs/README.md).
 
 - [File an issue](https://github.com/kevinschaich/mintable/issues)
 
-## Alternatives
-
-- [**Money in Excel**](https://www.microsoft.com/en-us/microsoft-365/blog/2020/06/15/introducing-money-excel-easier-manage-finances/): Recently announced partnership between Microsoft/Plaid. Requires a Microsoft 365 subscription ($70+/year).
-- [**Mint**](https://www.mint.com/): Owned by Intuit (TurboTax). Apps for iOS/Android/Web.
-- [**build-your-own-mint**](https://github.com/yyx990803/build-your-own-mint): Some assembly required. More flexible.

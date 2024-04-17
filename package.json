@@ -1,82 +1,85 @@
 {
-    "name": "mintable",
-    "author": "Kevin Schaich <schaich.kevin@gmail.com> (http://kevinschaich.io)",
-    "license": "MIT",
-    "version": "2.0.3",
-    "bin": "./lib/scripts/cli.js",
-    "preferGlobal": true,
-    "scripts": {
-        "build": "rimraf lib && esbuild --minify --tree-shaking --bundle ./src/scripts/cli.ts --outfile=./lib/scripts/cli.js --platform=node",
-        "lint": "prettier --check ./src/**/*.js ./src/**/*.html ./src/**/*.ts ./docs/**/*.json",
-        "lint-fix": "prettier --write ./src/**/*.js ./src/**/*.html ./src/**/*.ts ./docs/**/*.json",
-        "test": "npm run build && npm run lint"
-    },
-    "files": [
-        "src",
-        "lib",
-        "docs",
-        "tsconfig.json"
-    ],
-    "dependencies": {
-        "@types/body-parser": "^1.19.0",
-        "@types/express": "4.17.3",
-        "@types/express-serve-static-core": "4.17.28",
-        "@types/glob": "^7.1.2",
-        "@types/lodash": "4.14.149",
-        "@types/node": "^14.0.13",
-        "@types/prompts": "^2.0.3",
-        "ajv": "^6.12.0",
-        "body-parser": "^1.19.0",
-        "chalk": "^3.0.0",
-        "csv-parse": "^4.10.1",
-        "csv-stringify": "^5.5.0",
-        "date-fns": "^2.10.0",
-        "express": "4.17.3",
-        "glob": "^7.1.6",
-        "googleapis": "47.0.0",
-        "jsonc": "^2.0.0",
-        "lodash": "4.17.15",
-        "open": "^7.0.2",
-        "plaid": "^7.0.0",
-        "prompts": "^2.3.1",
-        "typescript": "3.8.3",
-        "typescript-json-schema": "^0.42.0",
-        "yargs": "^15.1.0"
-    },
-    "devDependencies": {
-        "esbuild": "^0.20.2",
-        "prettier": "^1.16.4",
-        "rimraf": "^5.0.5"
-    },
-    "description": "Automate your personal finances – for free, with no ads, and no data collection.",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/kevinschaich/mintable.git"
-    },
-    "keywords": [
-        "finance",
-        "finance-management",
-        "personal-finance",
-        "mint",
-        "sheets-api",
-        "google-sheets",
-        "google-sheets-api",
-        "plaid",
-        "plaid-api",
-        "analytics",
-        "tracker",
-        "finance-tracker",
-        "personal-capital",
-        "spreadsheet",
-        "mintable",
-        "money",
-        "budget",
-        "budgeting",
-        "budget-management",
-        "javascript"
-    ],
-    "bugs": {
-        "url": "https://github.com/kevinschaich/mintable/issues"
-    },
-    "homepage": "https://github.com/kevinschaich/mintable#readme"
+  "name": "mintable",
+  "author": "Kevin Schaich <schaich.kevin@gmail.com> (http://kevinschaich.io)",
+  "license": "MIT",
+  "private": true,
+  "bin": "./lib/cli.js",
+  "preferGlobal": true,
+  "scripts": {
+    "start": "tsx ./src/scripts/cli.ts",
+    "build": "rimraf lib && esbuild --bundle --tree-shaking --outdir=./lib --platform=node ./src/scripts/cli.ts",
+    "typecheck": "tsc --noEmit=true",
+    "format": "prettier --write './!(vendor|dist|lib)/**/(*.ts|*.tsx|*.js|*.html|*.css|*.json)'"
+  },
+  "files": [
+    "src",
+    "lib",
+    "docs",
+    "tsconfig.json"
+  ],
+  "dependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "4.17.21",
+    "@types/express-serve-static-core": "4.19.0",
+    "@types/glob": "^8.1.0",
+    "@types/lodash": "4.17.0",
+    "@types/node": "^20.12.7",
+    "@types/prompts": "^2.0.3",
+    "ajv": "^8.12.0",
+    "body-parser": "^1.19.0",
+    "chalk": "^5.3.0",
+    "csv-parse": "^5.5.5",
+    "csv-stringify": "^6.4.6",
+    "date-fns": "^3.6.0",
+    "express": "4.19.2",
+    "glob": "^10.3.12",
+    "googleapis": "134.0.0",
+    "jsonc": "^2.0.0",
+    "lodash": "4.17.21",
+    "open": "^10.1.0",
+    "prompts": "^2.3.1",
+    "typescript": "5.4.5",
+    "typescript-json-schema": "^0.63.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.32",
+    "esbuild": "^0.20.2",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.2"
+  },
+  "description": "Automate your personal finances – for free, with no ads, and no data collection.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinschaich/mintable.git"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "keywords": [
+    "finance",
+    "finance-management",
+    "personal-finance",
+    "mint",
+    "sheets-api",
+    "google-sheets",
+    "google-sheets-api",
+    "analytics",
+    "tracker",
+    "finance-tracker",
+    "personal-capital",
+    "spreadsheet",
+    "mintable",
+    "money",
+    "budget",
+    "budgeting",
+    "budget-management",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/kevinschaich/mintable/issues"
+  },
+  "homepage": "https://github.com/kevinschaich/mintable#readme"
 }

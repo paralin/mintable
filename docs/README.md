@@ -7,7 +7,6 @@
   - [Creating a Fresh Installation](#creating-a-fresh-installation)
   - [Migrating from `v1.x.x`](#migrating-from-v1xx)
 - [Importing Account Balances & Transactions](#importing-account-balances--transactions)
-  - [Automatically – in the cloud – via Plaid](#automatically-in-the-cloud--via-plaid)
   - [Automatically – via Teller](#automatically-via-teller)
   - [Manually – on your local machine – via CSV bank statements](#manually--on-your-local-machine--via-csv-bank-statements)
 - [Exporting Account Balances & Transactions](#exporting-account-balances--transactions)
@@ -40,82 +39,18 @@ Mintable simplifies managing your finances, for free, without ads, and without t
 
 ### Creating a Fresh Installation
 
-1. Sign up for [Plaid's Free Plan](https://plaid.com/pricing/). The free plan is limited to 100 banking institutions which should be more than enough for personal use. After applying and verifying your email it usually takes a day or two for them to approve your account.
-2. Install the global `mintable` command line utility:
+```bash
+npm install -g mintable
+mintable setup
+```
 
-    ```bash
-    npm install -g mintable
-    ```
+Update your account balances/transactions:
 
-3. Set up the integration with your banks and a spreadsheet using the setup wizard:
-
-    ```bash
-    mintable setup
-    ```
-
-4. Update your account balances/transactions:
-
-    ```
-    mintable fetch
-    ```
-
-![Mintable CLI](./img/cli.png)
-
-### Migrating from `v1.x.x`
-
-> **⚠️ Warning:** Plaid [introduced a breaking change in July 2020](https://github.com/plaid/plaid-node/pull/310) which deprecates the Public Key component from the authentication process. Once you upgrade to `v2.x.x` and disable your Public Key, you will no longer be able to continue using your `v1.x.x` installation. Proceed with caution.
-
-1. [Disable the Public Key in your Plaid Dashboard](https://plaid.com/docs/upgrade-to-link-tokens/#disable-the-public-key) (read ⚠️ above!)
-
-2. Install the new `v2.x.x` `mintable` command line utility:
-
-    ```bash
-    npm install -g mintable
-    ```
-
-3. Migrate your config to the new format:
-
-    ```bash
-    mintable migrate --old-config-file /path/to/your/old/mintable.config.json
-    ```
-
-4. Update your account balances/transactions:
-
-    ```bash
-    mintable fetch
-    ```
-
-> **Note:** After successful migration you can delete everything in your `v1.x.x` `mintable` folder. You may want to keep a copy of your `mintable.config.json` for posterity.
-
----
+```
+mintable fetch
+```
 
 ## Importing Account Balances & Transactions
-
-### Automatically – in the cloud – via [Plaid](https://plaid.com)
-
-You can run:
-
-```bash
-mintable plaid-setup
-```
-
-to enter the Plaid setup wizard. This will allow you to automatically fetch updated account balances/transactions from your banking institutions every time `mintable fetch` is run.
-
-After you have the base Plaid integration working, you can run:
-
-```bash
-mintable account-setup
-```
-
-to enter the account setup wizard to add, update, or remove accounts.
-
-![Account Setup](./img/account-setup.png)
-
-This will launch a local web server (necessary to authenticate with Plaid's servers) for you to connect your banks.
-
-To add a new account, click the blue **Link A New Account** button. To re-authenticate with an existing account, click the blue **Update** button next to the account name in the table.
-
-> **Note:** Plaid is the default import integration and these steps are not necessary if you've already run `mintable setup`.
 
 ### Automatically via [Teller](https://teller.io)
 
@@ -297,7 +232,7 @@ Transaction `override` rules allow you to override auto-populated fields based o
 
 You might want to do this to standardize values between financial institutions (`XFER` -> `Transfer`), or tune things to suit your particular budgeting needs (described below).
 
-For example, let's say you want to know how much you are spending on coffee each month, but Plaid/your bank categorizes your favorite shops as `Restaurants – Fast Food`. You might add the following to your `transactions.rules` config:
+For example, let's say you want to know how much you are spending on coffee each month, but your bank categorizes your favorite shops as `Restaurants – Fast Food`. You might add the following to your `transactions.rules` config:
 
 ```json
 "rules": [
